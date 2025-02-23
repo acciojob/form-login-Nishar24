@@ -1,16 +1,18 @@
-document.getElementById("userForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+// Function to handle form submission
+function getFormValue(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
 
-    // Get input values and trim spaces
-    let firstName = document.getElementById("fname").value.trim();
-    let lastName = document.getElementById("lname").value.trim();
+  // Retrieve values from the form fields
+  const firstName = document.getElementById("fname").value.trim();
+  const lastName = document.getElementById("lname").value.trim();
 
-    // Validate input
-    if (firstName === "" || lastName === "") {
-        alert("Please enter both First Name and Last Name.");
-        return;
-    }
+  // Concatenate the full name
+  const fullName = `${firstName} ${lastName}`;
 
-    // Display full name
-    alert(`${firstName} ${lastName}`);
-});
+  // Display the full name in an alert
+  alert(fullName);
+}
+
+// Attach the function to the form's submit event
+document.getElementById("nameForm").addEventListener("submit", getFormValue);
